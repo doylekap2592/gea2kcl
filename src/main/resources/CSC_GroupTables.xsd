@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Lisa Pogue (CSC Financial Services Group) 
+     2004/02/10  Added table OLIEXT_LU_GRPCONTTYPE             			JHuff
+     2004/04/23  Added tables OLIEXT_LU_COMMADJ and 								JHuff
+     						 OLIEXT_LU_SPECIALCOMM
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<!--
+* CL_GroupTables* Revision: 2.8
+* Date: October 18, 2002
+* Copyright (c) 2002 Computer Sciences Corporation. All Rights Reserved. 
+*
+************************************************************************                          Revision Log
+* LSP added XMLife Property definition          
+***********************************************************************
+-->
+	<xsd:complexType name="OLIEXT_LU_AUTHFUNCTIONTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_ASSIGNMENTTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="1000500007"/>
+							<xsd:enumeration value="1000500008"/>
+							<xsd:enumeration value="1000500009"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_BILLINGCALCMETHOD">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_BILLINGFORMATTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_COMMADJ">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_EFFECTIVESTATUS">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_ENROLLMENTSTATUS">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_FINANCIALOWNERTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="1000500001"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_FINANCIALPAYORTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">							
+							<xsd:enumeration value="1000500001"/>							
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_GRPCALCULATIONMETHOD">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="1000500007"/>
+							<xsd:enumeration value="1000500008"/>
+							<xsd:enumeration value="1000500009"/>
+							<xsd:enumeration value="1000500010"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_GRPCONTTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+	 	</xsd:simpleContent>
+	</xsd:complexType>	
+	<xsd:complexType name="OLIEXT_LU_GRPENDORSETYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>	
+	<xsd:complexType name="OLIEXT_LU_GROUPPLANDESIGN">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="1000500007"/>
+							<xsd:enumeration value="1000500008"/>
+							<xsd:enumeration value="1000500009"/>
+							<xsd:enumeration value="1000500010"/>
+							<xsd:enumeration value="1000500011"/>
+							<xsd:enumeration value="1000500012"/>
+							<xsd:enumeration value="1000500013"/>
+							<xsd:enumeration value="1000500014"/>
+							<xsd:enumeration value="1000500015"/>
+							<xsd:enumeration value="1000500016"/>
+							<xsd:enumeration value="1000500017"/>
+							<xsd:enumeration value="1000500018"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_LOCATION">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_MEMBERCLASSIFICATION">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">							
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>							
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_OVERRIDETYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>							
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_OWNERDEFINITIONTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="1000500007"/>
+							<xsd:enumeration value="1000500008"/>
+							<xsd:enumeration value="1000500009"/>
+							<xsd:enumeration value="1000500010"/>
+							<xsd:enumeration value="1000500011"/>
+							<xsd:enumeration value="1000500012"/>
+							<xsd:enumeration value="1000500013"/>
+							<xsd:enumeration value="1000500014"/>
+							<xsd:enumeration value="1000500015"/>
+							<xsd:enumeration value="1000500016"/>
+							<xsd:enumeration value="1000500017"/>
+							<xsd:enumeration value="1000500018"/>
+							<xsd:enumeration value="1000500019"/>
+							<xsd:enumeration value="1000500020"/>
+							<xsd:enumeration value="1000500021"/>
+							<xsd:enumeration value="1000500022"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_OWNERSHIPRIGHTSTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="1000500007"/>
+							<xsd:enumeration value="1000500008"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_POLICYFILETYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>							
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_PROFITCENTER">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">							
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_SUBSIDIARY">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">							
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_BILLINGCODE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_CORRTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_DELIVERYMETHOD">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>							
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_ENROLLMENTMETHOD">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_FINALDISPOSITIONSTATUS">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="23"/>
+							<xsd:enumeration value="27"/>
+							<xsd:enumeration value="29"/>
+							<xsd:enumeration value="39"/>
+							<xsd:enumeration value="1"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_PRODUCERCATEGORY">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_VESTINGTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_GROUPFACERULE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>						
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>							
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>	
+	<xsd:complexType name="OLIEXT_LU_GRPUNDERWRITINGSTATUS">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">							
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>							
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_GUARISSUEBASIS">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_GUARISSUEFORMULA">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_NOTIFICATIONTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_REASON">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_RECURRINGFREQUENCY">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_RENEWALINCREASETYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_REQUIREMENTINHIBITCODE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="1000500007"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>	
+	<xsd:complexType name="OLIEXT_LU_SORTVARIABLENAME">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">							
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="1000500006"/>
+							<xsd:enumeration value="1000500007"/>
+							<xsd:enumeration value="1000500008"/>
+							<xsd:enumeration value="1000500009"/>
+							<xsd:enumeration value="1000500010"/>
+							<xsd:enumeration value="1000500011"/>
+							<xsd:enumeration value="1000500012"/>
+							<xsd:enumeration value="1000500013"/>
+							<xsd:enumeration value="1000500014"/>
+							<xsd:enumeration value="1000500015"/>
+							<xsd:enumeration value="1000500016"/>
+							<xsd:enumeration value="1000500017"/>
+							<xsd:enumeration value="1000500018"/>
+							<xsd:enumeration value="1000500019"/>
+							<xsd:enumeration value="1000500020"/>
+							<xsd:enumeration value="1000500021"/>
+							<xsd:enumeration value="1000500022"/>
+							<xsd:enumeration value="1000500023"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_SPECIALCOMM">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_ANNBONUSTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_SUMMARYTYPE">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="0"/>
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+							<xsd:enumeration value="1000500003"/>
+							<xsd:enumeration value="1000500004"/>
+							<xsd:enumeration value="1000500005"/>
+							<xsd:enumeration value="2147483647"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="OLIEXT_LU_POLNUMMETH">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="tc" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:nonNegativeInteger">
+							<xsd:enumeration value="1000500001"/>
+							<xsd:enumeration value="1000500002"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

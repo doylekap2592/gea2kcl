@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SGP007 by rramtani on 04/13/2010 - Added DraftDate, PayerFirstName, PayerMiddleName,PayerLastName 
+			and FullName to GroupingExtension element -->
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Lisa Pogue (CSC Financial Services Group)
+     2003/12/05 Schema updated to include add'l group objects       jhuff
+     2004/02/10 Changed table definition for <ContractType>         jhuff
+     2004/04/22 Changed "SpecialCommission" and "CommAdjustment"    jhuff
+     		from Boolean to Typecode
+     2005/10/26 Added new element, CensusPolNumberMethod, to GroupingExtension  thust
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CSC_Extensions.xsd"/>
+	
+	
+	<xsd:element name="GroupAddressInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupAddressInfoKey" minOccurs="0"/>
+				<xsd:element ref="GroupAddressInfoSysKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="NameSequence" minOccurs="0"/>
+				<xsd:element ref="AddressSequence" minOccurs="0"/>
+				<xsd:element ref="ContactSequence" minOccurs="0"/>
+				<xsd:element ref="RoleTC" minOccurs="0"/>
+				<xsd:element ref="Addendum" minOccurs="0"/>
+				<xsd:element ref="Line1" minOccurs="0"/>
+				<xsd:element ref="Line2" minOccurs="0"/>
+				<xsd:element ref="City" minOccurs="0"/>
+				<xsd:element ref="AddressStateTC" minOccurs="0"/>
+				<xsd:element ref="Zip" minOccurs="0"/>
+				<xsd:element ref="AddressCountry" minOccurs="0"/>
+				<xsd:element ref="ForeignAddressInd" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="GroupAssigneeDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="AssignmentType" minOccurs="0"/>
+				<xsd:element ref="GroupCalculationMethod" minOccurs="0"/>				
+				<xsd:element ref="Amount" minOccurs="0"/>
+				<xsd:element ref="Percent" minOccurs="0"/>				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupAttachments">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupAttachmentsKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="AttachmentType" minOccurs="0"/>
+				<xsd:element ref="Priority" minOccurs="0"/>
+				<xsd:element ref="UserCode" minOccurs="0"/>
+				<xsd:element ref="LastUpdate" minOccurs="0"/>
+				<xsd:element ref="AttachmentPurgeDate" minOccurs="0"/>
+				<xsd:element ref="AttachmentData" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupBenefits">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ProductCode" minOccurs="0"/>
+				<xsd:element ref="DefaultProductCodeInd" minOccurs="0"/>
+				<xsd:element ref="PolicyLevelBenefitInd" minOccurs="0"/>
+				<xsd:element ref="OptionNumberOfUnits" minOccurs="0"/>
+				<xsd:element ref="OptNumberOfUnitsRule" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="GroupBillingRules">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupBillingRulesKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="OverrideType" minOccurs="0"/>
+				<xsd:element ref="BillNumber" minOccurs="0"/>
+				<xsd:element ref="PaymentMethod" minOccurs="0"/>
+				<xsd:element ref="MemberPaymentMode" minOccurs="0"/>
+				<xsd:element ref="GroupPaymentMode" minOccurs="0"/>
+				<xsd:element ref="BillingMedia" minOccurs="0"/>
+				<xsd:element ref="FirstBillSkipMonth" minOccurs="0"/>
+				<xsd:element ref="BillRestartMonth" minOccurs="0"/>
+				<xsd:element ref="PaymentDraftDay" minOccurs="0"/>
+				<xsd:element ref="Timing" minOccurs="0"/>
+				<xsd:element ref="AccountNumber" minOccurs="0"/>
+				<xsd:element ref="RoutingNumber" minOccurs="0"/>
+				<xsd:element ref="BranchNumber" minOccurs="0"/>
+				<xsd:element ref="AdminFee" minOccurs="0"/>
+				<xsd:element ref="AdminFeeMode" minOccurs="0"/>
+				<xsd:element ref="TransactionFeeBasis" minOccurs="0"/>
+				<xsd:element ref="TransactionFee" minOccurs="0"/>
+				<xsd:element ref="TransactionFeeMode" minOccurs="0"/>
+				<xsd:element ref="BillingFormatType" minOccurs="0"/>
+				<xsd:element ref="BillingCalcMethod" minOccurs="0"/>
+
+				<!--GRP009 - changes due to change of field from AlisInitialBillDate to InitialBillToDate for Group BillingRules -->
+				<xsd:element ref="InitialBillToDate" minOccurs="0"/>
+
+				<xsd:element ref="BillingWeek" minOccurs="0"/>
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="AcctHolderNameCC" minOccurs="0"/>
+				</xsd:choice>
+				<xsd:element ref="GroupSortRulesDetail" minOccurs="0" maxOccurs="10"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupCommunicationInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupCommunicationInfoKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="NameSequence" minOccurs="0"/>
+				<xsd:element ref="ContactSequence" minOccurs="0"/>
+				<xsd:element ref="BillingCode" minOccurs="0"/>
+				<xsd:element ref="BillingMedia" minOccurs="0"/>
+				<xsd:element ref="CorrType" minOccurs="0"/>
+				<xsd:element ref="CorrMedia" minOccurs="0"/>
+				<xsd:element ref="GroupEMailAddress" minOccurs="0" maxOccurs="2"/>
+				<xsd:element ref="GroupPhone" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+			<xsd:attribute name="NameInfoID" type="xsd:IDREF"/>
+			<xsd:attribute name="ContactAuthInfoID" type="xsd:IDREF"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="GroupContactAuthorization">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupContactAuthorizationKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="ContactSequence" minOccurs="0"/>
+				<xsd:element ref="DepartmentName" minOccurs="0"/>
+				<xsd:element ref="FullName" minOccurs="0"/>
+				<xsd:element ref="PrefComm" minOccurs="0"/>
+				<xsd:element ref="GroupContactFunctionDetails" minOccurs="0" maxOccurs="12"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupContactFunctionDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="FunctionType" minOccurs="0"/>
+				<xsd:element ref="PasswordAuth" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="GroupEMailAddress">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="EMailType" minOccurs="0"/>
+				<xsd:element ref="AddrLine" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupingExtension">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupingLevel" minOccurs="0" />
+				<xsd:element ref="CarrierAdminSubSystem" minOccurs="0" />
+				<!-- SGP003 - Census -->
+				<xsd:element ref="CensusPolNumberMethod" minOccurs="0" />
+				<!-- End SGP003 - Census -->
+				<!-- SGP007 START -->
+				<xsd:element ref="DraftDate" minOccurs="0" />
+				<xsd:element ref="PayerFirstName" minOccurs="0" />
+				<xsd:element ref="PayerLastName" minOccurs="0" />				
+				<xsd:element ref="PayerMiddleName" minOccurs="0" />
+				<xsd:element ref="FullName" minOccurs="0" />
+				<!-- SGP007 END -->				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	<xsd:element name="GroupHierarchyList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupHierarchyListKey" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="ScenarioParticipant" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GroupInvestInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupInvestInfoKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="OverrideType" minOccurs="0"/>
+				<xsd:element ref="CarrierCode" minOccurs="0"/>
+				<xsd:element ref="ProductCode" minOccurs="0"/>
+				<xsd:element ref="AARAllowedInd" minOccurs="0"/>
+				<xsd:element ref="DCAAllowedInd" minOccurs="0"/>
+				<xsd:element ref="MKTAllowedInd" minOccurs="0"/>
+				<xsd:element ref="GroupSubAccount" minOccurs="0" maxOccurs="99"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="GroupNameInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupNameInfoKey" minOccurs="0"/>
+				<xsd:element ref="GroupNameInfoSysKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="NameSequence" minOccurs="0"/>
+				<xsd:element ref="GroupNameType" minOccurs="0"/>
+				<xsd:element ref="FullName" minOccurs="0"/>
+				<xsd:element ref="FirstName" minOccurs="0"/>
+			    <xsd:element ref="MiddleName" minOccurs="0"/>
+			    <xsd:element ref="LastName" minOccurs="0"/>
+			    <xsd:element ref="Prefix" minOccurs="0"/>
+			    <xsd:element ref="Suffix" minOccurs="0"/>
+				<xsd:element ref="TaxpayerTC" minOccurs="0"/>
+				<xsd:element ref="TaxpayerNumber" minOccurs="0"/>
+				<xsd:element ref="TaxpayerJurisdiction" minOccurs="0"/>
+				<xsd:element ref="TaxIDVerifiedInd" minOccurs="0"/>
+				<xsd:element ref="TaxWithholdingType" minOccurs="0"/>
+				<xsd:element ref="GroupRoles" minOccurs="0" maxOccurs="10"/>
+				<xsd:element ref="GroupOwnerDetails" minOccurs="0" maxOccurs="1"/>
+				<xsd:element ref="GroupPayorDetails" minOccurs="0" maxOccurs="1"/>
+				<xsd:element ref="GroupAssigneeDetails" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupNewBusinessRules">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupNewBusinessRulesKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="OverrideType" minOccurs="0"/>
+				<xsd:element ref="SignedDate" minOccurs="0"/>
+				<xsd:element ref="ApplicationJurisdiction" minOccurs="0"/>
+				<xsd:element ref="HOReceiptDate" minOccurs="0"/>
+				<xsd:element ref="HOAssignedAppNumber" minOccurs="0"/>
+				<xsd:element ref="MinIssueAmt" minOccurs="0"/>
+				<xsd:element ref="MaxIssueAmt" minOccurs="0"/>
+				<xsd:element ref="RequestedIssueDate" minOccurs="0"/>
+				<xsd:element ref="InitialTermAgreeDate" minOccurs="0"/>
+				<xsd:element ref="ContractType" minOccurs="0"/>
+				<xsd:element ref="IllustrationDisclosureInd" minOccurs="0"/>
+				<xsd:element ref="LocationJurisdiction" minOccurs="0"/>
+				<xsd:element ref="LocationNation" minOccurs="0"/>
+				<xsd:element ref="SimplifyIssMaxAmt" minOccurs="0"/>
+				<xsd:element ref="GuarIssueAllowedInd" minOccurs="0"/>
+				<xsd:element ref="GuarIssueFormula" minOccurs="0"/>
+				<xsd:element ref="GuarIssueBasis" minOccurs="0"/>
+				<xsd:element ref="GuarInitialLimit" minOccurs="0"/>
+				<xsd:element ref="GuarUltimateLimit" minOccurs="0"/>
+				<xsd:element ref="RestrictionInd" minOccurs="0"/>
+				<xsd:element ref="ConditionalApprovalInd" minOccurs="0"/>
+				<xsd:element ref="CaseOrgCode" minOccurs="0"/>
+				<xsd:element ref="HOUnderwriterReviewMode" minOccurs="0"/>
+				<xsd:element ref="HOUnderwriterName" minOccurs="0"/>
+				<xsd:element ref="HOUnderwriterStatus" minOccurs="0"/>
+				<xsd:element ref="GroupUnderwritingStatus" minOccurs="0"/>
+				<xsd:element ref="UnderwriterFinalDisp" minOccurs="0"/>
+				<xsd:element ref="TaxReportingInd" minOccurs="0"/>
+				<xsd:element ref="TaxWithheldInd" minOccurs="0"/>
+				<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+				<xsd:element ref="DistributionChannel" minOccurs="0"/>
+				<xsd:element ref="EnrollmentMethod" minOccurs="0"/>
+				<xsd:element ref="CaseManager" minOccurs="0"/>
+				<xsd:element ref="WeightedAvgAge" minOccurs="0"/>
+				<xsd:element ref="WeightedAvgTarget" minOccurs="0"/>
+				<xsd:element ref="MinMemberCount" minOccurs="0"/>
+				<xsd:element ref="ReplacementType" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupNotifications">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupNotificationsKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="NotificationType" minOccurs="0"/>
+				<xsd:element ref="NotifyStatus" minOccurs="0"/>
+				<xsd:element ref="DueDate" minOccurs="0"/>
+				<xsd:element ref="PurgeDate" minOccurs="0"/>
+				<xsd:element ref="FollowUpInd" minOccurs="0"/>
+				<xsd:element ref="RecurringDayFrequency" minOccurs="0"/>
+				<xsd:element ref="Priority" minOccurs="0"/>
+				<xsd:element ref="NotifyDescription" minOccurs="0"/>
+				<xsd:element ref="NotifyReasonDescription" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupOwnerDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="OwnerDefinitionType" minOccurs="0"/>				
+				<xsd:element ref="GroupCalculationMethod" minOccurs="0"/>				
+				<xsd:element ref="Amount" minOccurs="0"/>
+				<xsd:element ref="Percent" minOccurs="0"/>				
+			</xsd:sequence>			
+		</xsd:complexType>
+	</xsd:element>		
+
+	<xsd:element name="GroupPayorDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="CalcMethodAmtUse" minOccurs="0"/>
+				<xsd:element ref="GroupCalculationMethod" minOccurs="0"/>		
+				<xsd:element ref="Amount" minOccurs="0"/>
+				<xsd:element ref="Percent" minOccurs="0"/>				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupPhone">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="PhoneTypeCode" minOccurs="0"/>
+				<xsd:element ref="AreaCode" minOccurs="0"/>
+				<xsd:element ref="DialNumber" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupProcessControlRules">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupProcessControlRulesKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="OverrideType" minOccurs="0"/>
+				<xsd:element ref="HoldDisbursementInd" minOccurs="0"/>
+				<xsd:element ref="StatementMode" minOccurs="0"/>
+				<xsd:element ref="ConfirmationMode" minOccurs="0"/>
+				<xsd:element ref="FiscalStartDate" minOccurs="0"/>
+				<xsd:element ref="NumOfFiscalPeriods" minOccurs="0"/>
+				<xsd:element ref="RenewalIncreaseType" minOccurs="0"/>
+				<xsd:element ref="RenewalPercent" minOccurs="0"/>
+				<xsd:element ref="RestrictionCode" minOccurs="0"/>
+				<xsd:element ref="MaxTempTableRating" minOccurs="0"/>
+				<xsd:element ref="MaxTempFlatRating" minOccurs="0"/>
+				<xsd:element ref="MaxPermTableRating" minOccurs="0"/>
+				<xsd:element ref="MaxPermFlatRating" minOccurs="0"/>
+				<xsd:element ref="GroupSummaryInfo" minOccurs="0" maxOccurs="9"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupProducerDetails">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ProducerCategory" minOccurs="0"/>
+				<xsd:element ref="CompanyProducerID" minOccurs="0"/>
+				<xsd:element ref="PrimaryProducerInd" minOccurs="0"/>
+				<xsd:element ref="ProducerType" minOccurs="0"/>
+				<xsd:element ref="SituationCode" minOccurs="0"/>
+				<xsd:element ref="InterestPercent" minOccurs="0"/>
+				<xsd:element ref="VolumeSharePct" minOccurs="0"/>
+				<xsd:element ref="BillingCode" minOccurs="0"/>
+				<xsd:element ref="BillingMedia" minOccurs="0"/>
+				<xsd:element ref="CorrType" minOccurs="0"/>
+				<xsd:element ref="CorrMedia" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupProducerInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupProducerInfoKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="OverrideType" minOccurs="0"/>
+				<xsd:element ref="SpecialCommission" minOccurs="0"/>
+				<xsd:element ref="CommAdjustment" minOccurs="0"/>
+				<xsd:element ref="FirstYrReplacementFactor" minOccurs="0"/>
+				<xsd:element ref="GroupProducerDetails" minOccurs="0" maxOccurs="20"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupProductInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupProductInfoKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="OverrideType" minOccurs="0"/>
+				<xsd:element ref="CarrierCode" minOccurs="0"/>
+				<xsd:element ref="ProductCode" minOccurs="0"/>
+				<xsd:element ref="DefaultProductCodeInd" minOccurs="0"/>
+				<xsd:element ref="DeathBenefitOptType" minOccurs="0"/>
+				<xsd:element ref="TobaccoPremiumBasis" minOccurs="0"/>
+				<xsd:element ref="NonFortProv" minOccurs="0"/>
+				<xsd:element ref="DivType" minOccurs="0"/>
+				<xsd:element ref="DivOYTOptType" minOccurs="0"/>
+				<xsd:element ref="PensionInd" minOccurs="0"/>
+				<xsd:element ref="OwnershipRightsType" minOccurs="0"/>
+				<xsd:element ref="GroupEndorseType" minOccurs="0"/>
+				<xsd:element ref="AssignmentInd" minOccurs="0"/>
+				<xsd:element ref="VestingType" minOccurs="0"/>
+				<xsd:element ref="QualPlanType" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDate" minOccurs="0"/>
+				<xsd:element ref="GroupStartupDate" minOccurs="0"/>
+				<xsd:element ref="NumMbrsAppliedFor" minOccurs="0"/>
+				<xsd:element ref="MinParticipantPercent" minOccurs="0"/>
+				<xsd:element ref="GroupRiders" minOccurs="0" maxOccurs="12"/>
+				<xsd:element ref="GroupBenefits" minOccurs="0" maxOccurs="12"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupRequirements">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupRequirementsKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="OverrideType" minOccurs="0"/>
+				<xsd:element ref="ReqCode" minOccurs="0"/>
+				<xsd:element ref="ReqStatus" minOccurs="0"/>
+				<xsd:element ref="RequestedDate" minOccurs="0"/>
+				<xsd:element ref="FulfilledDate" minOccurs="0"/>
+				<xsd:element ref="FollowUpMode" minOccurs="0"/>
+				<xsd:element ref="Priority" minOccurs="0"/>
+				<xsd:element ref="RecurringDayFrequency" minOccurs="0"/>
+				<xsd:element ref="Reason" minOccurs="0"/>
+				<xsd:element ref="Description" minOccurs="0"/>
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="GroupRequirementInhibitCodeCC"/>
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupRequirementInhibitCodeCC">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="RequirementInhibitCode" minOccurs="0" maxOccurs="19"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+		
+		<xsd:element name="GroupRiders">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ProductCode" minOccurs="0"/>
+				<xsd:element ref="DefaultProductCodeInd" minOccurs="0"/>
+				<xsd:element ref="InitCovAmt" minOccurs="0"/>
+				<xsd:element ref="InitCovAmtRule" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="GroupRoles">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="RoleTC"  minOccurs="1" maxOccurs="10"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+			<xsd:attribute name="AddressID" type="xsd:IDREF"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupSortRulesDetail">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SortVariableName" minOccurs="0"/>
+				<xsd:element ref="DataType" minOccurs="0"/>
+				<xsd:element ref="SortRank" minOccurs="0"/>
+				<xsd:element ref="PageSkipRuleInd" minOccurs="0"/>
+				<xsd:element ref="SummaryRuleInd" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupStatusHistory">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GroupStatusHistoryKey" minOccurs="0"/>
+				<xsd:element ref="SegmentIdent" minOccurs="0"/>
+				<xsd:element ref="StartDate" minOccurs="0"/>
+				<xsd:element ref="EndDate" minOccurs="0"/>
+				<xsd:element ref="GroupPlanDesign" minOccurs="0"/>
+				<xsd:element ref="MemberClassification" minOccurs="0"/>
+				<xsd:element ref="ProfitCenter" minOccurs="0"/>
+				<xsd:element ref="CostCenter" minOccurs="0"/>
+				<xsd:element ref="Location" minOccurs="0"/>
+				<xsd:element ref="Subsidiary" minOccurs="0"/>
+				<xsd:element ref="FinancialPayorType" minOccurs="0"/>
+				<xsd:element ref="FinancialOwnerType" minOccurs="0"/>
+				<xsd:element ref="PolicyFileType" minOccurs="0"/>
+				<xsd:element ref="LastChangeOperatorID" minOccurs="0"/>
+				<xsd:element ref="EnrollmentStatus" minOccurs="0"/>
+				<xsd:element ref="EffectiveStatus" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupSubAccount">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ProductCode" minOccurs="0"/>
+				<xsd:element ref="AllocPercent" minOccurs="0"/>
+				<xsd:element ref="SystematicActivityType" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GroupSummaryInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SummaryType" minOccurs="0"/>
+				<xsd:element ref="SummaryMode" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="AARAllowedInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="Addendum" type="xsd:string"/>	
+	<xsd:element name="AddressSequence" type="xsd:integer"/>	
+	<xsd:element name="AdminFeeMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="AssignmentInd" type="OLI_LU_ASSIGNED"/>
+	<xsd:element name="AssignmentType" type="OLIEXT_LU_ASSIGNMENTTYPE"/>
+	<xsd:element name="AttachmentPurgeDate" type="xsd:date"/>
+	<xsd:element name="BillingCalcMethod" type="OLIEXT_LU_BILLINGCALCMETHOD"/>
+	<xsd:element name="BillingCode" type="OLIEXT_LU_BILLINGCODE"/>
+	<xsd:element name="BillingFormatType" type="OLIEXT_LU_BILLINGFORMATTYPE"/>
+	<xsd:element name="BillingMedia" type="OLI_LU_PREFCOMM"/>
+	<xsd:element name="BillRestartMonth" type="xsd:integer"/>
+	<xsd:element name="GroupBillingRulesKey" type="PERSISTKEY"/>
+	<xsd:element name="CalcMethodAmtUse" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="CaseManager" type="xsd:string"/>
+	<!-- SGP003 - Census -->
+	<xsd:element name="CensusPolNumberMethod" type="OLIEXT_LU_POLNUMMETH"/>
+	<!-- End SGP003 - Census -->
+	<xsd:element name="CommAdjustment" type="OLIEXT_LU_COMMADJ"/>
+	<xsd:element name="ConditionalApprovalInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="ConfirmationMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="GroupContactAuthorizationKey" type="PERSISTKEY"/>
+	<xsd:element name="ContactSequence" type="xsd:integer"/>
+	<xsd:element name="ContractType" type="OLIEXT_LU_GRPCONTTYPE"/>
+	<xsd:element name="CorrMedia" type="OLI_LU_PREFCOMM"/>
+	<xsd:element name="CorrType" type="OLIEXT_LU_CORRTYPE"/>
+	<xsd:element name="DataType" type="OLI_LU_VARIANT"/>
+	<xsd:element name="DCAAllowedInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="DefaultProductCodeInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="DeliveryMethod" type="OLIEXT_LU_DELIVERYMETHOD"/>
+	<xsd:element name="DraftDate" type="xsd:date"/> <!-- SGP007 -->
+	<xsd:element name="EffectiveStatus" type="OLIEXT_LU_EFFECTIVESTATUS"/>
+	<xsd:element name="EnrollmentMethod" type="OLIEXT_LU_ENROLLMENTMETHOD"/>
+	<xsd:element name="EnrollmentStatus" type="OLIEXT_LU_ENROLLMENTSTATUS"/>
+	<xsd:element name="FinancialOwnerType" type="OLIEXT_LU_FINANCIALOWNERTYPE"/>
+	<xsd:element name="FinancialPayorType" type="OLIEXT_LU_FINANCIALPAYORTYPE"/>
+	<xsd:element name="FirstYrReplacementFactor" type="xsd:decimal"/>
+	<xsd:element name="FiscalStartDate" type="xsd:date"/>
+	<xsd:element name="FollowUpInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="FollowUpMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="FunctionType" type="OLIEXT_LU_AUTHFUNCTIONTYPE"/>
+	<xsd:element name="GroupAddressInfoKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupAddressInfoSysKey" type="SYSKEY"/>	
+	<xsd:element name="GroupAttachmentsKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupCalculationMethod" type="OLIEXT_LU_GRPCALCULATIONMETHOD"/>
+	<xsd:element name="GroupCommunicationInfoKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupEndorseType" type="OLIEXT_LU_GRPENDORSETYPE"/>
+	<xsd:element name="GroupHierarchyListKey" type="PERSISTKEY"/>	
+	<xsd:element name="GroupInvestInfoKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupingLevel" type="xsd:integer" />
+	<xsd:element name="GroupNameInfoKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupNameInfoSysKey" type="SYSKEY"/>	
+	<xsd:element name="GroupNameType" type="OLI_LU_ORGFORM"/>
+	<xsd:element name="GroupNewBusinessRulesKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupNotificationsKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupPaymentMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="GroupPlanDate" type="xsd:date"/>
+	<xsd:element name="GroupProcessControlRulesKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupProducerInfoKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupProductInfoKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupRequirementsKey" type="PERSISTKEY"/>	
+	<xsd:element name="GroupStartupDate" type="xsd:date"/>
+	<xsd:element name="GroupStatusHistoryKey" type="PERSISTKEY"/>
+	<xsd:element name="GroupUnderwritingStatus" type="OLIEXT_LU_GRPUNDERWRITINGSTATUS"/>	
+	<xsd:element name="GuarInitialLimit" type="xsd:decimal"/>
+	<xsd:element name="GuarIssueAllowedInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="GuarIssueBasis" type="OLIEXT_LU_GUARISSUEBASIS"/>
+	<xsd:element name="GuarIssueFormula" type="OLIEXT_LU_GUARISSUEFORMULA"/>
+	<xsd:element name="GuarUltimateLimit" type="xsd:decimal"/>
+	<xsd:element name="HoldDisbursementInd" type="OLI_LU_BOOLEAN"/>	
+	<xsd:element name="HOUnderwriterReviewMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="HOUnderwriterStatus" type="OLIEXT_LU_UNDAPPROVAL"/>
+	<xsd:element name="IllustrationDisclosureInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="InitCovAmtRule" type="OLIEXT_LU_GROUPFACERULE"/>
+	<xsd:element name="InitialTermAgreeDate" type="xsd:date"/>	
+	<xsd:element name="LastChangeOperatorID" type="xsd:string"/>
+	<xsd:element name="LocationJurisdiction" type="OLI_LU_STATE"/>
+	<xsd:element name="LocationNation" type="OLI_LU_NATION"/>
+	<xsd:element name="MaxPermFlatRating" type="xsd:string"/>
+	<xsd:element name="MaxPermTableRating" type="xsd:string"/>
+	<xsd:element name="MaxTempFlatRating" type="xsd:string"/>
+	<xsd:element name="MaxTempTableRating" type="xsd:string"/>
+	<xsd:element name="MemberPaymentMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="MinMemberCount" type="xsd:integer"/>
+	<xsd:element name="MinParticipantPercent" type="xsd:double"/>
+	<xsd:element name="MKTAllowedInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="NameSequence" type="xsd:integer"/>
+	<xsd:element name="NotificationType" type="OLIEXT_LU_NOTIFICATIONTYPE"/>
+	<xsd:element name="NotifyDescription" type="OLIEXT_LU_REASON"/>
+	<xsd:element name="NotifyReasonDescription" type="xsd:string"/>
+	<xsd:element name="NotifyStatus" type="xsd:string"/>
+	<xsd:element name="NumMbrsAppliedFor" type="xsd:integer"/>
+	<xsd:element name="NumOfFiscalPeriods" type="xsd:integer"/>	
+	<xsd:element name="OptNumberOfUnitsRule" type="OLIEXT_LU_GROUPFACERULE"/>
+	<xsd:element name="OverrideType" type="OLIEXT_LU_OVERRIDETYPE"/>
+	<xsd:element name="OwnerDefinitionType" type="OLIEXT_LU_OWNERDEFINITIONTYPE"/>
+	<xsd:element name="OwnershipRightsType" type="OLIEXT_LU_OWNERSHIPRIGHTSTYPE"/>
+	<xsd:element name="PageSkipRuleInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="PasswordAuth" type="xsd:string"/>
+	<xsd:element name="PayerFirstName" type="xsd:string"/>	<!-- SGP007 -->
+	<xsd:element name="PayerLastName" type="xsd:string"/>	<!-- SGP007 -->
+	<xsd:element name="PayerMiddleName" type="xsd:string"/>	<!-- SGP007 -->
+	<xsd:element name="PensionInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="Percent" type="xsd:double"/>
+	<xsd:element name="PolicyFileType" type="OLIEXT_LU_POLICYFILETYPE"/>
+	<xsd:element name="PrimaryProducerInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="ProducerCategory" type="OLIEXT_LU_PRODUCERCATEGORY"/>
+	<xsd:element name="Reason" type="OLIEXT_LU_REASON"/>
+	<xsd:element name="RecurringDayFrequency" type="OLIEXT_LU_RECURRINGFREQUENCY"/>
+	<xsd:element name="RenewalIncreaseType" type="OLIEXT_LU_RENEWALINCREASETYPE"/>
+	<xsd:element name="RenewalPercent" type="xsd:double"/>
+	<xsd:element name="RequirementInhibitCode" type="OLIEXT_LU_REQUIREMENTINHIBITCODE"/>	
+	<xsd:element name="RoleTC" type="OLI_LU_REL"/>
+	<xsd:element name="SegmentIdent" type="xsd:integer"/>
+	<xsd:element name="SimplifyIssMaxAmt" type="xsd:decimal"/>
+	<xsd:element name="SortRank" type="xsd:integer"/>
+	<xsd:element name="SortVariableName" type="OLIEXT_LU_SORTVARIABLENAME"/>
+	<xsd:element name="SpecialCommission" type="OLIEXT_LU_SPECIALCOMM"/>
+	<xsd:element name="SummaryMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="SummaryRuleInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="SummaryType" type="OLIEXT_LU_SUMMARYTYPE"/>
+	<xsd:element name="TaxIDVerifiedInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="TaxpayerJurisdiction" type="OLI_LU_STATE"/>
+	<xsd:element name="TaxpayerNumber" type="xsd:integer"/>
+	<xsd:element name="TaxpayerTC" type="OLI_LU_GOVTIDTC"/>
+	<xsd:element name="TaxReportingInd" type="OLI_LU_BOOLEAN"/>
+	<xsd:element name="TransactionFee" type="xsd:decimal"/>
+	<xsd:element name="TransactionFeeBasis" type="xsd:string"/>
+	<xsd:element name="TransactionFeeMode" type="OLI_LU_PAYMODE"/>
+	<xsd:element name="UnderwriterFinalDisp" type="OLIEXT_LU_FINALDISPOSITIONSTATUS"/>
+	<xsd:element name="VestingType" type="OLIEXT_LU_VESTINGTYPE"/>
+	<xsd:element name="WeightedAvgAge" type="xsd:decimal"/>
+	<xsd:element name="WeightedAvgTarget" type="xsd:decimal"/>
+</xsd:schema>

@@ -1,0 +1,18 @@
+"name": "abc"
+"prefix": "gea2kac"
+version: "1.0.0"
+subversion: "Examples of mapping"
+app:
+    name: "gea2kac"
+    release: "na"
+    
+
+# Should be not here. Will move to Git properties
+
+db:
+    server: "GLIC-SQL-DEV1"
+    port: "1433"
+    dbname: "ESBDB"
+    user: "ESBro"
+    password: "Password123"
+    

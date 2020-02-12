@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="67766da9-7e56-451e-b9fe-5a904219d0e5" >
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="be2810ce-151b-48e4-b909-966193281e7c" file="global.yaml" />
+
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="fb9af119-0e82-4ef6-bd17-dc3d42441029" >
+		<db:mssql-connection host="${db.server}" port="${db.port}" user="${db.user}" password="${db.password}" databaseName="${db.dbname}" />
+	</db:config>
+
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="88d15418-b829-4b83-bea9-6ec656a0d943" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
+
+	<db:config name="Database_Config1" doc:name="Database Config" doc:id="510843a2-3a66-4b59-8440-2d7ee7a67420" >
+		<db:mssql-connection host="GLIC-SQL-DEV1" user="ESBro" password="Password123" databaseName="ESBDB" />
+	</db:config>
+	<wsc:config name="Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="4a4b35dd-32f3-4e40-a675-4700afb1dd4e" >
+		<wsc:connection wsdlLocation="http://kap0083b:9081/axis2/services/TxLifeService?wsdl" service="TxLifeService" port="TxLifeServiceHttpSoap11Endpoint" address="http://kap0083b:9081/axis2/services/TxLifeService.TxLifeServiceHttpSoap11Endpoint/" />
+	</wsc:config>
 	<flow name="gea2kclFlow" doc:id="041551ff-c407-482d-9225-0cf018522bcf" >
 		<http:listener doc:name="Listener" doc:id="f2af052e-5e9a-47dd-b879-f5e0a98d0c29" config-ref="HTTP_Listener_config" path="/test"/>
 		<logger level="INFO" doc:name="Logger" doc:id="81b8fe05-a873-4c71-9030-d7cabff8c3ca" message="Happy Times"/>
@@ -24,4 +40,304 @@ output application/json
 			</ee:message>
 		</ee:transform>
 	</flow>
+	
+	
+		
+	
+	<flow name="gea2kacDoyle" doc:id="1261506a-f0cb-49d3-9ce5-3c71f1bbe904" >
+		<http:listener doc:name="Listener" doc:id="e14a0a9f-969d-40c5-9fe7-d7d5763523b9" config-ref="HTTP_Listener_config" path="/api2" allowedMethods="POST"/>
+		<ee:transform doc:name="Read JSON Lookup Tble" doc:id="dd37145c-e11f-4d16-aec4-2e8143b8be3e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+readUrl("classpath://GW2CK4.json", "application/json") ]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="Store in tr" doc:id="029f8012-2193-4656-a86b-b7d70032c7c1" >
+			<ee:message >
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="tr" ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	lookupData: {
+		productId: ((payload.lookupData.productId map( productId , indexOfProductId ) -> {
+			key: ((productId.key default 0) + productId.key) + productId.key,
+			productCode: ((productId.productCode default "") ++ productId.productCode) ++ productId.productCode,
+			productName: ((productId.productName default "") ++ productId.productName) ++ productId.productName,
+			productTypeCode: ((productId.productTypeCode default "") ++ productId.productTypeCode) ++ productId.productTypeCode,
+			productTypeName: ((productId.productTypeName default "") ++ productId.productTypeName) ++ productId.productTypeName,
+			lifeCovTypeCode: ((productId.lifeCovTypeCode default "") ++ productId.lifeCovTypeCode) ++ productId.lifeCovTypeCode,
+			lifeCovTypeName: ((productId.lifeCovTypeName default "") ++ productId.lifeCovTypeName) ++ productId.lifeCovTypeName,
+			indicatorCode: ((productId.indicatorCode default "") ++ productId.indicatorCode) ++ productId.indicatorCode,
+			indicatorName: ((productId.indicatorName default "") ++ productId.indicatorName) ++ productId.indicatorName,
+			lineOfBusiness: ((productId.lineOfBusiness default "") ++ productId.lineOfBusiness) ++ productId.lineOfBusiness,
+			lineOfBusName: ((productId.lineOfBusName
+		default "") ++ productId.lineOfBusName) ++ productId.lineOfBusName
+		}
+) ++ (payload.lookupData.productId map( productId , indexOfProductId ) -> {
+		})) ++ (payload.lookupData.productId map( productId , indexOfProductId ) -> {
+		}),
+		genderId: payload.lookupData.genderId map ( genderId , indexOfGenderId ) -> {
+			key: genderId.key,
+			genderType: genderId.genderType,
+			genderNum: genderId.genderNum
+		},
+		paymentMode: payload.lookupData.paymentMode map ( paymentMode , indexOfPaymentMode ) -> {
+			key: paymentMode.key,
+			paymentModeValue: paymentMode.paymentModeValue,
+			paymentModeNum: paymentMode.paymentModeNum
+		},
+		paymentMethod: payload.lookupData.paymentMethod map ( paymentMethod , indexOfPaymentMethod ) -> {
+			key: paymentMethod.key,
+			paymentMethodValue: paymentMethod.paymentMethodValue,
+			paymentMethodNum: paymentMethod.paymentMethodNum
+		},
+		lifeParticipant: payload.lookupData.lifeParticipant map ( lifeParticipant , indexOfLifeParticipant ) -> {
+			key: lifeParticipant.key,
+			lifeParticipanRoleCode: lifeParticipant.lifeParticipanRoleCode,
+			lifeParticipantRoleValue: lifeParticipant.lifeParticipantRoleValue,
+			relationRoleCode: lifeParticipant.relationRoleCode,
+			relationRoleValue: lifeParticipant.relationRoleValue,
+			relationDescriptionCode: lifeParticipant.relationDescriptionCode,
+			relationDescriptionValue: lifeParticipant.relationDescriptionValue
+		},
+		benefitId: (payload.lookupData.benefitId map( benefitId , indexOfBenefitId ) -> {
+			key: (benefitId.key default 0) + benefitId.key,
+			benefitName: (benefitId.benefitName default "") ++ benefitId.benefitName,
+			lifeCovOptTypeCode: (benefitId.lifeCovOptTypeCode default "") ++ benefitId.lifeCovOptTypeCode,
+			lifeCovOptTypeName: (benefitId.lifeCovOptTypeName
+		default "") ++ benefitId.lifeCovOptTypeName
+		}) ++ (payload.lookupData.benefitId map( benefitId , indexOfBenefitId ) -> {
+		}),
+		states: (payload.lookupData.states map( state , indexOfState ) -> {
+			key: (state.key default 0) + state.key,
+			value: (state.value default "") ++ state.value,
+			valuenum: (state.valuenum
+		default 0) + state.valuenum
+		}
+) ++ (payload.lookupData.states map( state , indexOfState ) -> {
+		})
+	}
+} ]]></ee:set-variable>
+				<ee:set-variable variableName="tr" ><![CDATA[%dw 2.0
+output application/java
+---
+{
+}]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="d2dc417e-ff7a-410d-9530-157391d117f2" message="#[payload]"/>
+		<ee:transform doc:name="Map to productId,benefitId,state" doc:id="3fbb8884-5be2-4b14-9596-dbb09fa537cd" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+
+---
+{TXLife @('xmlns:xsd':"http://www.w3.org/2001/XMLSchema",
+	'xmlns:xsi':"http://www.w3.org/2001/XMLSchema-instance",
+	'xsi:noNamespaceSchemaLocation':"TX103Request.xsd")
+: {
+	UserAuthRequest: {
+		UserLoginName: "KZ083",
+		UserPswd: {
+			CryptType: "NONE",
+			Pswd: "JXS"
+		},
+		UserDate: "2020-01-16",
+		UserTime: "12:00:00-08:00",
+		VendorApp: {
+			VendorName @(VendorCode: "05"): "CSC", 
+			AppName: "CyberLife",
+			AppVer: "1001"
+		},
+	},
+	TXLifeRequest: {
+		TransRefGUID: "706D67C1-CC4D-11CF-91FB-444554540000",
+		TransType @(tc: "103"): "New Business Submit",
+		TransExeDate: "2019-08-01",
+		TransExeTime: "12:00:10-08:00",
+		TransMode @(tc: "2"): "Original",
+	OLifE @(Version: "2.8.92"): {
+	Holding @(id: "Holding_1"): {
+		HoldingTypeCode @(tc: "2"): "Policy",
+	Policy: {
+		PolNumber: "Auto",
+		LineOfBusiness @(tc: "1"): "Life",
+		/** @(tc: (vars.tr.lookupData.productId filter(item,i) ->(item.key == payload.productPage.productId))[0].lineOfBusiness)
+		: (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].lineOfBusName, */
+		ProductType @(tc: "1000500001"): "Indeterminate Premium Term",
+		/** @(tc: (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].productTypeCode)
+		: (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].productTypeName, */
+		ProductCode : "195LT380",
+		//: (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].productCode,
+		CarrierCode: "02",
+		Jurisdiction @(tc: "50"): "Tennessee",
+		/** @(tc: (vars.tr.lookupData.states filter(item,i) -> (item.key == payload.generalPage.applicationState))[0].valuenum)
+		: (vars.tr.lookupData.states filter(item,i) -> (item.key == payload.generalPage.applicationState))[0].value, */
+		PaymentMode @(tc: "4"): "Monthly",
+		/** @(tc: (vars.tr.lookupData.paymentMode filter(item,i) -> (item.key == payload.billingPage.paymentMode))[0].paymentModeNum)
+		: (vars.tr.lookupData.paymentMode filter(item,i) -> (item.key == payload.billingPage.paymentMode))[0].paymentModeValue, */
+		PaymentMethod @(tc: "2"): "Regular Billing",
+		/** @(tc: (vars.tr.lookupData.paymentMethod filter(item,i) -> (item.key == payload.billingPage.billingType))[0].paymentMethodNum)
+		: (vars.tr.lookupData.paymentMethod filter(item,i)-> (item.key == payload.billingPage.billingType))[0].paymentMethodValue, */
+		Life: {
+			NonFortProv @(tc: "0"): "None",
+			Coverage @(id: "Coverage_1"): {
+				CoverageKey @(Persist: "Permanent"): "1",
+				ProductCode : "195LT380",
+				//: (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].productCode,
+				LifeCovTypeCode @(tc: "1019700005"): "Indeterminate Premium",
+				/** @(tc: (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].lifeCovTypeCode)
+		        : (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].lifeCovTypeName, */
+		        IndicatorCode @(tc: "1"): "Base",
+		        /** @(tc: (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].indicatorCode)
+		        : (vars.tr.lookupData.productId filter(item,i) -> (item.key == payload.productPage.productId))[0].indicatorName, */
+		        CurrentAmt: 350000,    //payload.productPage.faceAmount,
+		        CovOption: {
+		        	ProductCode: 10,
+		        	OptionNumberOfUnits: "75.0" 
+		        },
+		        LifeParticipant @(id:"LifeParticipant_1",PartyID:"Party_1"): {
+		        	LifeParticipantRoleCode @(tc: "1"): "Primary Insured"
+		        },
+		        OLifEExtension @(VendorCode:"5",ExtensionCode:"Coverage2.8"): {
+		        	CoverageExtension: {
+		        		GuidelineExemptInd @(tc: "1"): "True"
+		        	},
+		        },
+			},
+			Coverage @(id: "Coverage_2"): {
+				CoverageKey @(Persist: "Permanent"): "1",
+				ProductCode : "035TIR10",
+				LifeCovTypeCode @(tc: "1019700005"): "Indeterminate Premium",
+				IndicatorCode @(tc: "2"): "Rider",
+		        CurrentAmt: 350000,
+		        CovOption: {
+		        	ProductCode: 10,
+		        	OptionNumberOfUnits: "75.0" 
+		        },
+		        LifeParticipant @(id:"LifeParticipant_2",PartyID:"Party_2"): {
+		        	LifeParticipantRoleCode @(tc: "2"): "Other Insured"
+		        },
+		        },
+			OLifEExtension @(VendorCode:"5",ExtensionCode:"Policy2.8"): {
+		        	PolicyExtension: {
+		        		PolicyIllus @(tc: "0"): "Nothing"
+		        	}
+		        }
+		},
+		ApplicationInfo: {
+			HOAssignedAppNumber: "DEMOCASE",
+			ApplicationJurisdiction @(tc: "50"): "Tennessee",
+			/** @(tc: (vars.tr.lookupData.states filter(item,i) -> (item.key == payload.generalPage.applicationState))[0].valuenum)
+		    : (vars.tr.lookupData.states filter(item,i) -> (item.key == payload.generalPage.applicationState))[0].value, */
+		    SignedDate: "2020-01-16",
+		    RequestedPolDate: "2020-01-20",
+		    CaseOrgCode: "01",
+		    NBContactName: "KAP0083",
+		    HOUnderwriterName: "DEMOCASE"
+		},
+	},
+	},
+    Party @(id: "Party_1"): {
+		GovtID: "555667777",
+		GovtIDStat @(tc: "1"): "Certified",
+		GovtIDTC @(tc: "1"): "Social Security Number",
+		Person : {
+			FirstName: "George", //payload.personPage.persons.name.firstName,
+			MiddleName: "R", //payload.personPage.persons.name.middleInitial,
+			LastName: "Harrison", //payload.personPage.persons.name.lastName,
+			MarStat @(tc: "1"): "Married", 
+			Gender @(tc: "1"): "Male",
+		    BirthDate: "1969-08-11",
+		    Citizenship @(tc: "1"): "United States of America",
+		    SmokerStat @(tc: "1"): "Never used tobacco in any form",
+		    DriversLicenseNum: "MO64068",
+		    DriversLicenseState @(tc: "30"): "Missouri",
+		    BirthJurisdictionTC @(tc: "50"): "Tennessee",
+		    OLifEExtension @(VendorCode:"5",ExtensionCode:"Person2.8"): {
+		    	PersonExtension: {
+		    		AutoMIBRequest @(tc: "0"): "False"
+		    	},
+		    },
+		},
+		Address @(id: "Address_1"): {
+			AddressTypeCode @(tc: "1"): "Residence",
+			Line1: "2118 Allendale Road", //payload.personPage.persons.mailingAddress.address1,
+			City: "Morrison", //payload.personPage.persons.mailingAddress.city,
+			AddressStateTC @(tc: "50"): "Tennessee",
+		    Zip: "37357", //payload.personPage.persons.mailingAddress.zip,
+		    StartDate: "2020-01-16",
+		    OLifEExtension @(VendorCode:"5",ExtensionCode:"Address2.8"): {
+		    	AddressExtension: {
+		    		ForeignAddressInd @(tc: "0"): "False"
+		    	},
+		    },
+		},  
+	},
+	Party @(id: "Party_2"): {
+		Person : {
+			FirstName: "Andrea",
+			MiddleName: "S",
+			LastName: "Smith",
+			Gender @(tc: "2"): "Female",
+		},
+	},
+	Party @(id: "Party_3"): {
+		Person : {},
+			Producer : {
+				CarrierAppointment @(PartyID: "Party_3"): {
+			        CompanyProducerID: "66000",
+			 		}
+					}
+					
+		      },
+	Relation @(id:"Relation_1",RelatedObjectID:"Party_1",OriginatingObjectID:"Holding_1"): {
+		OriginatingObjectType @(tc: "4"): "Holding",
+		RelatedObjectType @(tc: "6"): "Party",
+		RelationRoleCode @(tc: "32"): "Primary Insured"
+	},
+	Relation @(id:"Relation_2",RelatedObjectID:"Party_1",OriginatingObjectID:"Holding_1"): {
+		OriginatingObjectType @(tc: "4"): "Holding",
+		RelatedObjectType @(tc: "6"): "Party",
+		RelationRoleCode @(tc: "8"): "Owner",
+		InterestPercent: 100.00
+	},
+	Relation @(id:"Relation_3",RelatedObjectID:"Party_2",OriginatingObjectID:"Holding_1"): {
+		OriginatingObjectType @(tc: "4"): "Holding",
+		RelatedObjectType @(tc: "6"): "Party",
+		RelationRoleCode @(tc: "34"): "Beneficiary",
+	},
+	Relation @(id:"Relation_4",RelatedObjectID:"Party_2",OriginatingObjectID:"Party_1"): {
+		OriginatingObjectType @(tc: "6"): "Party",
+		RelatedObjectType @(tc: "6"): "Party",
+		RelationRoleCode @(tc: "34"): "Beneficiary",
+		RelationDescription @(tc: "1000500001"): "Spouse",
+		OLifEExtension @(VendorCode:"05",ExtensionCode:"Relation2.8.92"): {
+		    	RelationExtension: {
+		    		BeneficiaryDistributionOption @(tc: "3"): "Balance"
+		    	}
+		  		    	},
+	},
+	Relation @(id:"Relation_5",RelatedObjectID:"Party_3",OriginatingObjectID:"Holding_1"): {
+		OriginatingObjectType @(tc: "4"): "Holding",
+		RelatedObjectType @(tc: "6"): "Party",
+		RelationRoleCode @(tc: "37"): "Primary Writing Agent",
+		InterestPercent: 100.00,
+		VolumeSharePct: 100.00
+	}
+	}
+	}
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<wsc:consume operation="execute" doc:name="Consume" doc:id="d3920785-43eb-43d6-8f15-d6bdfee4b2e3" config-ref="Web_Service_Consumer_Config"/>
+	</flow>
+	
+	
+	
 </mule>

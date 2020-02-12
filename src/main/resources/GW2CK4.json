@@ -1,0 +1,415 @@
+{
+  "lookupData": {
+    "productId": [
+      {
+        "key": 139,
+        "productCode": "195LT380",
+        "productName": "Choice Advantage Term 10",
+        "productTypeCode": "1000500001",
+        "productTypeName": "Indeterminate Premium Term",
+        "lifeCovTypeCode": "1019700001",
+        "lifeCovTypeName": "Indeterminate Premium",
+        "indicatorCode": "1",
+        "indicatorName": "Base",
+        "lineOfBusiness": "1",
+        "lineOfBusName": "Life"
+      },
+      {
+        "key": 140,
+        "productCode": "195LT490",
+        "productName": "Choice Advantage Term 15",
+        "productTypeCode": "1000500001",
+        "productTypeName": "Indeterminate Premium Term",
+        "lifeCovTypeCode": "1019700001",
+        "lifeCovTypeName": "Indeterminate Premium",
+        "indicatorCode": "1",
+        "indicatorName": "Base",
+        "lineOfBusiness": "1",
+        "lineOfBusName": "Life"
+      },
+      {
+        "key": 7,
+        "productCode": "185CTI40",
+        "productName": "Child Rider",
+        "productTypeCode": " ",
+        "productTypeName": " ",
+        "lifeCovTypeCode": "1019700001",
+        "lifeCovTypeName": "Indeterminate Premium",
+        "indicatorCode": "2",
+        "indicatorName": "Rider",
+        "lineOfBusiness": " ",
+        "lineOfBusName": " "
+      },
+      {
+        "key": 29,
+        "productCode": "188SR70",
+        "productName": "Spouses Term Insurance",
+        "productTypeCode": " ",
+        "productTypeName": " ",
+        "lifeCovTypeCode": "1019700001",
+        "lifeCovTypeName": "Indeterminate Premium",
+        "indicatorCode": "2",
+        "indicatorName": "Rider",
+        "lineOfBusiness": " ",
+        "lineOfBusName": " "
+      },
+      {
+        "key": 30,
+        "productCode": "035TIR10",
+        "productName": "Accelerated Death Benefit",
+        "productTypeCode": " ",
+        "productTypeName": " ",
+        "lifeCovTypeCode": "1019700001",
+        "lifeCovTypeName": "Indeterminate Premium",
+        "indicatorCode": "2",
+        "indicatorName": "Rider",
+        "lineOfBusiness": " ",
+        "lineOfBusName": " "
+      }
+    ],
+    "genderId": [
+      {
+        "key": 1,
+        "genderType": "Male",
+        "genderNum": "1"
+      },
+      {
+        "key": 2,
+        "genderType": "Female",
+        "genderNum": "2"
+      }
+    ],
+    "paymentMode": [
+      {
+        "key": 1,
+        "paymentModeValue": "Annual",
+        "paymentModeNum": "1"
+      },
+      {
+        "key": 2,
+        "paymentModeValue": "Semi-Annual",
+        "paymentModeNum": "2"
+      },
+      {
+        "key": 8,
+        "paymentModeValue": "Quarterly",
+        "paymentModeNum": "3"
+      },
+      {
+        "key": 18,
+        "paymentModeValue": "Monthly",
+        "paymentModeNum": "4"
+      }
+    ],
+    "paymentMethod": [
+        {
+          "key": 5,
+          "paymentMethodValue": "Reg",
+          "paymentMethodNum": "2"
+        },
+        {
+          "key": 1,
+          "paymentMethodValue": "PAC",
+          "paymentMethodNum": "7"
+        },
+        {
+          "key": 2,
+          "paymentMethodValue": "GA",
+          "paymentMethodNum": "8"
+        },
+        {
+        "key": 3,
+        "paymentMethodValue": "CB",
+        "paymentMethodNum": "6"
+      }
+     ],
+    "lifeParticipant": [
+      {
+        "key": 0,
+        "lifeParticipanRoleCode": 1,
+        "lifeParticipantRoleValue": "Primary Insured",
+        "relationRoleCode": 32,
+        "relationRoleValue": "Primary Insured",
+        "relationDescriptionCode": " ",
+        "relationDescriptionValue": " "
+      }
+    ], 
+    "benefitId": [
+      {
+        "key": 1,
+        "benefitName": "Waiver of Premium",
+        "lifeCovOptTypeCode": "32",
+        "lifeCovOptTypeName": "WP"
+      },
+      {
+        "key": 28,
+        "benefitName": "Income Assured Option",
+        "lifeCovOptTypeCode": "Q0",
+        "lifeCovOptTypeName": "DDBP"
+      },
+      {
+        "key": 2,
+        "benefitName": "Accidental Death Benefit",
+        "lifeCovOptTypeCode": "10",
+        "lifeCovOptTypeName": "Accidental Death Benefit"
+      }
+    ],
+    "states": [
+      {
+        "key": 1,
+        "value": "Alabama",
+        "valuenum": 1
+      },
+      {
+        "key": 54,
+        "value": "Alaska",
+        "valuenum": 2
+      },
+      {
+        "key": 2,
+        "value": "Arizona",
+        "valuenum": 4
+      },
+      {
+        "key": 3,
+        "value": "Arkansas",
+        "valuenum": 5
+      },
+      {
+        "key": 4,
+        "value": "California",
+        "valuenum": 6
+      },
+      {
+        "key": 5,
+        "value": "Colorado",
+        "valuenum": 7
+      },
+      {
+        "key": 6,
+        "value": "Connecticut",
+        "valuenum": 8
+      },
+      {
+        "key": 7,
+        "value": "Delaware",
+        "valuenum": 9
+      },
+      {
+        "key": 8,
+        "value": "District Of Columbia",
+        "valuenum": 10
+      },
+      {
+        "key": 9,
+        "value": "Florida",
+        "valuenum": 12
+      },
+      {
+        "key": 10,
+        "value": "Georgia",
+        "valuenum": 13
+      },
+      {
+        "key": 52,
+        "value": "Hawaii",
+        "valuenum": 15
+      },
+      {
+        "key": 11,
+        "value": "Idaho",
+        "valuenum": 16
+      },
+      {
+        "key": 12,
+        "value": "Illinois",
+        "valuenum": 17
+      },
+      {
+        "key": 13,
+        "value": "Indiana",
+        "valuenum": 18
+      },
+      {
+        "key": 14,
+        "value": "Iowa",
+        "valuenum": 19
+      },
+      {
+        "key": 15,
+        "value": "Kansas",
+        "valuenum": 20
+      },
+      {
+        "key": 16,
+        "value": "Kentucky",
+        "valuenum": 21
+      },
+      {
+        "key": 17,
+        "value": "Louisiana",
+        "valuenum": 22
+      },
+      {
+        "key": 18,
+        "value": "Maine",
+        "valuenum": 23
+      },
+      {
+        "key": 19,
+        "value": "Maryland",
+        "valuenum": 25
+      },
+      {
+        "key": 20,
+        "value": "Massachusetts",
+        "valuenum": 26
+      },
+      {
+        "key": 21,
+        "value": "Michigan",
+        "valuenum": 27
+      },
+      {
+        "key": 22,
+        "value": "Minnesota",
+        "valuenum": 28
+      },
+      {
+        "key": 23,
+        "value": "Mississippi",
+        "valuenum": 29
+      },
+      {
+        "key": 24,
+        "value": "Missouri",
+        "valuenum": 30
+      },
+      {
+        "key": 25,
+        "value": "Montana",
+        "valuenum": 31
+      },
+      {
+        "key": 26,
+        "value": "Nebraska",
+        "valuenum": 32
+      },
+      {
+        "key": 27,
+        "value": "Nevada",
+        "valuenum": 33
+      },
+      {
+        "key": 28,
+        "value": "New Hampshire",
+        "valuenum": 34
+      },
+      {
+        "key": 29,
+        "value": "New Jersey",
+        "valuenum": 35
+      },
+      {
+        "key": 30,
+        "value": "New Mexico",
+        "valuenum": 36
+      },
+      {
+        "key": 31,
+        "value": "New York",
+        "valuenum": 37
+      },
+      {
+        "key": 32,
+        "value": "North Carolina",
+        "valuenum": 38
+      },
+      {
+        "key": 33,
+        "value": "North Dakota",
+        "valuenum": 39
+      },
+      {
+        "key": 34,
+        "value": "Ohio",
+        "valuenum": 41
+      },
+      {
+        "key": 35,
+        "value": "Oklahoma",
+        "valuenum": 42
+      },
+      {
+        "key": 36,
+        "value": "Oregon",
+        "valuenum": 43
+      },
+      {
+        "key": 37,
+        "value": "Pennsylvania",
+        "valuenum": 45
+      },
+      {
+        "key": 38,
+        "value": "Rhode Island",
+        "valuenum": 47
+      },
+      {
+        "key": 39,
+        "value": "South Carolina",
+        "valuenum": 48
+      },
+      {
+        "key": 40,
+        "value": "South Dakota",
+        "valuenum": 49
+      },
+      {
+        "key": 41,
+        "value": "Tennessee",
+        "valuenum": 50
+      },
+      {
+        "key": 42,
+        "value": "Texas",
+        "valuenum": 51
+      },
+      {
+        "key": 43,
+        "value": "Utah",
+        "valuenum": 52
+      },
+      {
+        "key": 44,
+        "value": "Vermont",
+        "valuenum": 53
+      },
+      {
+        "key": 45,
+        "value": "Virginia",
+        "valuenum": 55
+      },
+      {
+        "key": 46,
+        "value": "Washington",
+        "valuenum": 56
+      },
+      {
+        "key": 47,
+        "value": "West Virginia",
+        "valuenum": 57
+      },
+      {
+        "key": 48,
+        "value": "Wisconsin",
+        "valuenum": 58
+      },
+      {
+        "key": 49,
+        "value": "Wyoming",
+        "valuenum": 59
+      }
+    ]
+  }
+}
