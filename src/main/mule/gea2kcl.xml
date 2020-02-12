@@ -17,7 +17,7 @@ output application/json
 ---
 {
 	start:now(), 
-	end:'now or not'
+	end:'now or not' 
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
