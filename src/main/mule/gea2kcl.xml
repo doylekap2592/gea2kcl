@@ -10,6 +10,8 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="gea2kclFlow" doc:id="041551ff-c407-482d-9225-0cf018522bcf" >
 		<http:listener doc:name="Listener" doc:id="f2af052e-5e9a-47dd-b879-f5e0a98d0c29" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="81b8fe05-a873-4c71-9030-d7cabff8c3ca" message="Jusr started"/>
+		<logger level="INFO" doc:name="Logger" doc:id="f8eeae59-7b4d-4bcd-bfb4-bee4e1d01c49" message="#[payload]"/>
 		<ee:transform doc:name="Transform Message" doc:id="1629c881-de29-45b2-b580-697a5b5782b6" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
